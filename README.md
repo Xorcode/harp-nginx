@@ -5,7 +5,7 @@ You don't need to use node to serve a harp site - you can just compile the files
 
 This is a container that has node and harp available, to compile and install the static site, that nginx serves.
 
-You can use our container: `docker pull octohost/harp-nginx`
+You can use our container: `docker pull xorcode/harp-nginx`
 
 Or you can build your own:
 
@@ -17,7 +17,7 @@ docker push your-name-here/harp-nginx
 After this - just add this Dockerfile to your Harp repo:
 
 ```
-FROM octohost/harp-nginx
+FROM xorcode/harp-nginx
 
 WORKDIR /srv/www
 
