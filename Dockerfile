@@ -1,4 +1,4 @@
-FROM octohost/nodejs
+FROM xorcode/nodejs
 
 RUN npm install harp -g
 
