@@ -1,13 +1,9 @@
 FROM xorcode/nodejs
-
-RUN npm install harp -g
-
-RUN add-apt-repository -y ppa:nginx/stable
-RUN apt-get update
-
-RUN apt-get -y install nginx
-
-RUN mkdir /srv/www
-
-ADD default /etc/nginx/sites-available/default
-ADD nginx.conf /etc/nginx/nginx.conf
+RUN \
+  add-apt-repository -y ppa:nginx/stable && \
+  DEBIAN_FRONTEND="noninteractive" apt-get update && \
+  DEBIAN_FRONTEND="noninteractive" apt-get -y install nginx && \
+  npm install harp -g && mkdir /srv/www && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+COPY default /etc/nginx/sites-available/default
+COPY nginx.conf /etc/nginx/nginx.conf
